@@ -1,0 +1,168 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #373636;
+    background-color: burlywood;
+
+}
+
+/** type writer **/
+ .intro_1 {
+    animation: intro1;
+  }
+  
+  .intro_2 {
+    animation: intro2;
+  }
+  
+  .intro_1, .intro_2 {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+    animation-duration: 15s;
+    animation-timing-function: steps(25, end);
+    animation-iteration-count: infinite;
+  }
+  
+  .intro_1::after, .intro_2::after {
+    content: "|";
+    position: absolute;
+    right: 0;
+    animation: caret infinite;
+    color: 373636;
+    animation-duration: 1s;
+    animation-timing-function: steps(1, end);
+  }
+  
+  @keyframes intro1 {
+    0%, 50%, 100% {
+      width: 0;
+    }
+    10%, 40% {
+      width: 17em;
+    }
+  }
+
+  @keyframes intro2 {
+    0%, 50%, 100% {
+      width: 0;
+    }
+    
+    60%, 90% {
+      width: 21.2em;
+    }
+  }
+  
+  @keyframes caret {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+/** speech **/
+#speech {
+    height: 200px;
+    border: 1px solid #373636;
+    padding: 10px;
+    box-shadow: 0 0 10px 0 #373636;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    line-height: 25px;
+}
+
+/* buttons */
+button {
+  margin: 0;
+  font-size: 2em;
+  position: absolute;
+  top: 240px;
+  left: 47%;
+  background: transparent;
+  border: none;
+}
+
+#stop-button {
+  left: 50.5%;
+}
+
+/* pop up box */
+.overlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 600ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  height: 15%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  top: 2em;
+  color: #333;
+}
+.popup #close {
+  position: absolute;
+  top: 8px;
+  right: 7px;
+  transition: all 500ms;
+  font-weight: bold;
+  font-size: 40px;
+  text-decoration: wavy;
+  color: #333;
+}
+.popup #close:hover {
+  color: rgb(194, 143, 75);
+}
+.popup #message {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .popup #close{
+    max-height: 30%;
+    color: red;
+  }
+  .popup{
+    width: 50%;
+    height: 50%;
+    background-color: red;
+  }
+}
+
+
+
+/* footer */
+.footer {
+    position: fixed;
+    width: 100%;
+    background-color: rgb(194, 143, 75);
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: large;
+}
+#date {
+    font-size: auto;
+}
